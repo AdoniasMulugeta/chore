@@ -22,13 +22,12 @@
         },
         directives: {
             focus: {
-                // directive definition
+                // This is triggered when the element is inserted to the DOM.
                 inserted: function (el) {
                     el.focus()
                 }
             }
         }
-
     }
 </script>
 
