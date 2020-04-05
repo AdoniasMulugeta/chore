@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import todoList from './components/todoList.vue'
+import todoList from './components/TodoList.vue'
 
 export default {
   name: 'App',
