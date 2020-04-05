@@ -1,7 +1,8 @@
 <template>
     <div class="todo-item" :key="todo.key" v-bind="todo">
         <input id='todo-complete' type="checkbox" v-model="todo.completed">
-        <input v-focus v-if="todo.editing" class="todo-name" type="text" @keyup.enter="doneEditTodo" @blur="doneEditTodo" v-model="todo.name">
+        <input v-focus v-if="todo.editing" class="todo-name" type="text" @keyup.enter="doneEditTodo"
+               @blur="doneEditTodo" v-model="todo.name" @keyup.esc="abortEditing">
         <div v-else id="todo.id" class="todo-name"  @dblclick="editTodo">{{ todo.name }}</div>
         <div class="remove-todo" @click="removeTodo">&times;</div>
     </div>
@@ -13,14 +14,19 @@
         props : { todo: { name: String, id: Number, completed: Boolean, editing: Boolean } },
         methods: {
             doneEditTodo(){
+                if (this.todo.name.trim() === '') this.abortEditing();
                 this.todo.editing = false;
             },
             editTodo(){
+                this.todo.cache = this.todo.name;
                 this.todo.editing = true;
-                this.$refs.todo_edit.focus();
             },
             removeTodo() {
                 this.$emit('removeTodo', this.todo)
+            },
+            abortEditing(){
+                this.todo.name = this.todo.cache || this.todo.name;
+                this.todo.editing = false
             }
         },
         directives: {
