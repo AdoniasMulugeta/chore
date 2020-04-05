@@ -44,7 +44,9 @@
                 this.todoIdCounter++;
             },
             removeTodo(todo){
-                this.todos.splice(todo.id, 1);
+                const index = this.todos.findIndex(element => (element.id === todo.id));
+                if (index < 0) return;
+                this.todos.splice(index, 1);
             }
         }
     }
