@@ -3,7 +3,7 @@
         <input id='todo-complete' type="checkbox" v-model="todo.completed">
         <input v-focus v-if="todo.editing" class="todo-name" type="text" @keyup.enter="doneEditTodo"
                @blur="doneEditTodo" v-model="todo.name" @keyup.esc="abortEditing">
-        <div v-else id="todo.id" class="todo-name"  @dblclick="editTodo">{{ todo.name }}</div>
+        <div v-else id="todo.id" :class="{ completed: todo.completed }" class="todo-name" @dblclick="editTodo">{{ todo.name }}</div>
         <div class="remove-todo" @click="removeTodo">&times;</div>
     </div>
 </template>
@@ -61,5 +61,9 @@
     .remove-todo {
         cursor: pointer;
         margin-left: 14px;
+    }
+    .completed {
+        text-decoration: line-through;
+        color: darkgrey;
     }
 </style>
