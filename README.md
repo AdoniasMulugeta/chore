@@ -1,4 +1,5 @@
 # vue-js-projects
+### Chore is a simple to-do app build with vue.js, bootstrap-vue and firebase
 
 ## Project setup
 ```
@@ -22,3 +23,5 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+-
+
