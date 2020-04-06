@@ -25,3 +25,6 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 -
 
+![Chore app interface](https://drive.google.com/file/d/1bPXzG3nZNID4-mSZcNrSU04iAW-IfyWr/view?usp=sharing)
+
+
